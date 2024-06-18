@@ -6,14 +6,14 @@
 #include <thread>
 using namespace std;
 
-void loading_time(int sec)// IT is a function for loading data on screen..
+void loading_time(int sec) // IT is a function for loading data on screen..
 {
     cout << "Loading, please wait...\n";
     // thread_local :: sleep_for(chrono::seconds(sec));
     system("cls");
 }
-void Enter_to_exit()// This is a Function by which pressing ENTER it stops .... 
-{ 
+void Enter_to_exit() // This is a Function by which pressing ENTER it stops ....
+{
     cout << endl;
     cout << setw(20) << " " << "Press ENTER to QUIT...";
     cin.get();
@@ -158,21 +158,22 @@ class CustomerFeedback
 {
 public:
 };
-class Menu : public POS
-{ // Inheriting POS in Menu.
-    string items_names[6] = {"TEA", "COFFEE", "BLACK COFFEE", "CAKE", "SANDWICH", "WAFFLES"};
-    float items_prices[6] = {10.0, 15.0, 12};
+class Menu : public POS // Inheriting POS in Menu.
+{
 public:
+    string items_names[6] = {"TEA", "COFFEE", "BLACK COFFEE", "CAKE", "SANDWICH", "WAFFLES"};
+    float items_prices[6] = {10.0, 15.0, 12.0, 27.0, 17.0, 25.0};
     Menu()
     {
         system("cls");
         cout << setw(20) << "" << "--------------------------------------" << endl;
-        cout << setw(28) << "" << "Welcome to our Cafe!" << endl;
+        cout << setw(37) << "" << "MENU" << endl;
         cout << setw(20) << "" << "--------------------------------------" << endl;
         for (int i = 0; i < 6; i++)
         {
-            cout << setw(20) << " " << i + 1 << ". " << items_names[i] << endl;
+            cout << setw(20) << " " <<"|"<< i + 1 << ". " << items_names[i] <<setw(31-items_names[i].length())<<" "<<items_prices[i]<<"|"<<endl;
         }
+        cout << setw(20) << "" << "--------------------------------------" << endl;
     }
 };
 int ownercode;
@@ -184,9 +185,9 @@ int main()
 
     cout << endl;
 
-    Owner o;
-    o.set_data();
-    o.check_credentails();
-    o.Welcoming_owner();
+    // Owner o;
+    // o.set_data();
+    // o.check_credentails();
+    // o.Welcoming_owner();
     Menu();
 }
